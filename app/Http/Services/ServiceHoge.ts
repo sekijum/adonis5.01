@@ -6,7 +6,7 @@ import { IDtoHoge } from 'App/Http/DTOs/IDtoHoge'
 export interface IHogeRepository {
     index(qs: Record<string, any>): Promise<Hoge[]>
     show(hoge: Hoge): Promise<Hoge | null>
-    create(hoge: IDtoHoge): Promise<Hoge>
+    store(hoge: IDtoHoge): Promise<Hoge>
     update(hoge: Hoge, dto: IDtoHoge): Promise<Hoge>
     delete(hoge: Hoge): Promise<void>
 }
@@ -23,14 +23,14 @@ export class ServiceHoge implements IHogeRepository {
         return hoge
     }
 
-    public async create(dto: IDtoHoge): Promise<Hoge> {
+    public async store(dto: IDtoHoge): Promise<Hoge> {
         const { locales, ...data } = dto
         try {
             const hoge = await Hoge.create(data)
             await hoge.related('locales').updateOrCreateMany(locales, 'code')
             return hoge
         } catch (err) {
-            throw new AppException('Hoge create is faild.', err)
+            throw new AppException('Hoge store is faild.', err)
         }
     }
 

@@ -19,8 +19,8 @@ export default class LocaleController {
         return SuccessResponse({ response, data })
     }
 
-    public async create({ response, validated }: HttpContextContract) {
-        const data = await this.ServiceLocale.create(validated)
+    public async store({ response, validated }: HttpContextContract) {
+        const data = await this.ServiceLocale.store(validated)
         return SuccessResponse({ response, data })
     }
 

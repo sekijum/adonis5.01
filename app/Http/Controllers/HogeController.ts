@@ -19,8 +19,8 @@ export default class HogeController {
         return SuccessResponse({ response, data })
     }
 
-    public async create({ response, validated }: HttpContextContract) {
-        const data = await this.ServiceHoge.create(validated)
+    public async store({ response, validated }: HttpContextContract) {
+        const data = await this.ServiceHoge.store(validated)
         return SuccessResponse({ response, data })
     }
 

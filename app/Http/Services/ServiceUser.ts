@@ -8,7 +8,7 @@ import { USERTYPES } from 'App/enums/User'
 // eslint-disable-next-line @typescript-eslint/naming-convention
 export interface IUserRepository {
     index(qs: Record<string, any>): Promise<Array<User>>
-    create(data: IDtoUser): Promise<User>
+    store(data: IDtoUser): Promise<User>
     update(user: User, dto: IDtoUser): Promise<User>
     renewPassword(user: User, dto: IDtorenewPassword): Promise<User>
     delete(user: User): Promise<void>
@@ -21,14 +21,14 @@ export class ServiceUser implements IUserRepository {
         return User.query().paginate(page, limit)
     }
 
-    public async create(data: IDtoUser): Promise<User> {
+    public async store(data: IDtoUser): Promise<User> {
         try {
             return User.create({
                 ...data,
                 type: USERTYPES.MEMBER,
             })
         } catch (err) {
-            throw new AppException('User create is faild.', err)
+            throw new AppException('User store is faild.', err)
         }
     }
 

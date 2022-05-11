@@ -8,7 +8,7 @@ export const User = () => {
     Route.group(() => {
         Route.get('/', 'UserController.index')
         Route.get('/:id', 'UserController.show').bindModel(UserModel, 'user')
-        Route.post('/', 'UserController.create').validate(RequestStore)
+        Route.post('/', 'UserController.store').validate(RequestStore)
         Route.put('/:id', 'UserController.update')
             .bindModel(UserModel, 'user')
             .validate(RequestUpdate)

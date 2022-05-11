@@ -7,7 +7,7 @@ export const Hoge = () => {
     Route.group(() => {
         Route.get('/', 'HogeController.index')
         Route.get('/:id', 'HogeController.show').bindModel(HogeModel, 'hoge')
-        Route.post('/', 'HogeController.create').validate(RequestStore)
+        Route.post('/', 'HogeController.store').validate(RequestStore)
         Route.put('/:id', 'HogeController.update')
             .bindModel(HogeModel, 'hoge')
             .validate(RequestUpdate)

@@ -19,9 +19,9 @@ export default class UserController {
         return SuccessResponse({ response, data: models['user'] })
     }
 
-    public async create({ response, validated }: HttpContextContract) {
-        const data = await this.ServiceUser.create(validated)
-        Event.emit('user:create', data)
+    public async store({ response, validated }: HttpContextContract) {
+        const data = await this.ServiceUser.store(validated)
+        Event.emit('user:store', data)
         return SuccessResponse({ response, data })
     }
 
