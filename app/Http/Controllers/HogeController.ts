@@ -9,8 +9,8 @@ export default class HogeController {
         this.ServiceHoge = new ServiceHoge()
     }
 
-    public async index({ response, request }: HttpContextContract) {
-        const data = await this.ServiceHoge.index(request.qs())
+    public async list({ response, request }: HttpContextContract) {
+        const data = await this.ServiceHoge.list(request.qs())
         return SuccessResponse({ response, data })
     }
 

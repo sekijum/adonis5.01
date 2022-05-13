@@ -9,8 +9,8 @@ export default class LocaleController {
         this.ServiceLocale = new ServiceLocale()
     }
 
-    public async index({ response, request }: HttpContextContract) {
-        const data = await this.ServiceLocale.index(request.qs())
+    public async list({ response, request }: HttpContextContract) {
+        const data = await this.ServiceLocale.list(request.qs())
         return SuccessResponse({ response, data })
     }
 

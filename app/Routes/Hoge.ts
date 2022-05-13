@@ -5,7 +5,7 @@ import RequestUpdate from 'App/Http/Requests/Hoge/RequestUpdate'
 
 export const Hoge = () => {
     Route.group(() => {
-        Route.get('/', 'HogeController.index')
+        Route.get('/', 'HogeController.list')
         Route.get('/:id', 'HogeController.show').bindModel(HogeModel, 'hoge')
         Route.post('/', 'HogeController.store').validate(RequestStore)
         Route.put('/:id', 'HogeController.update')

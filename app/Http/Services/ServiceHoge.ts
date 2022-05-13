@@ -1,18 +1,10 @@
 import AppException from 'App/Shared/Exceptions/AppException'
 import Hoge from 'App/Models/Hoge'
 import { IDtoHoge } from 'App/Http/DTOs/IDtoHoge'
-
-// eslint-disable-next-line @typescript-eslint/naming-convention
-export interface IHogeRepository {
-    index(qs: Record<string, any>): Promise<Hoge[]>
-    show(hoge: Hoge): Promise<Hoge | null>
-    store(hoge: IDtoHoge): Promise<Hoge>
-    update(hoge: Hoge, dto: IDtoHoge): Promise<Hoge>
-    delete(hoge: Hoge): Promise<void>
-}
+import IHogeRepository from 'App/Http/Interface/IHogeRepository'
 
 export class ServiceHoge implements IHogeRepository {
-    public async index(qs: Record<string, any>): Promise<Hoge[]> {
+    public async list(qs: Record<string, any>): Promise<Hoge[]> {
         const page = Number(qs.page || 1)
         const limit = Number(qs.limit || 20)
         return Hoge.query().preload('locales').paginate(page, limit)

@@ -10,8 +10,8 @@ export default class UserController {
         this.ServiceUser = new ServiceUser()
     }
 
-    public async index({ response, request }: HttpContextContract) {
-        const data = await this.ServiceUser.index(request.qs())
+    public async list({ response, request }: HttpContextContract) {
+        const data = await this.ServiceUser.list(request.qs())
         return SuccessResponse({ response, data })
     }
 

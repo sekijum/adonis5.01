@@ -4,18 +4,10 @@ import AuthorizationException from 'App/Shared/Exceptions/AuthorizationException
 import User from 'App/Models/User'
 import { IDtoUser, IDtorenewPassword } from 'App/Http/DTOs/IDtoUser'
 import { USERTYPES } from 'App/enums/User'
-
-// eslint-disable-next-line @typescript-eslint/naming-convention
-export interface IUserRepository {
-    index(qs: Record<string, any>): Promise<Array<User>>
-    store(data: IDtoUser): Promise<User>
-    update(user: User, dto: IDtoUser): Promise<User>
-    renewPassword(user: User, dto: IDtorenewPassword): Promise<User>
-    delete(user: User): Promise<void>
-}
+import IUserRepository from 'App/Http/Interface/IUserRepository'
 
 export class ServiceUser implements IUserRepository {
-    public async index(qs: Record<string, any>): Promise<User[]> {
+    public async list(qs: Record<string, any>): Promise<User[]> {
         const page = Number(qs.page || 1)
         const limit = Number(qs.limit || 20)
         return User.query().paginate(page, limit)

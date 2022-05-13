@@ -2,13 +2,7 @@ import { AuthContract } from '@ioc:Adonis/Addons/Auth'
 import AuthorizationException from 'App/Shared/Exceptions/AuthorizationException'
 import User from 'App/Models/User'
 import { IDtoSignup, IDtoSignin } from 'App/Http/DTOs/IDtoSession'
-
-// eslint-disable-next-line @typescript-eslint/naming-convention
-export interface ISessionRepository {
-    signin(auth: AuthContract, data: IDtoSignin): Promise<any>
-    signup(auth: AuthContract, dto: IDtoSignup): Promise<any>
-    refresh(auth: AuthContract): Promise<any>
-}
+import ISessionRepository from 'App/Http/Interface/ISessionRepository'
 
 export class ServiceSession implements ISessionRepository {
     public async signin(auth: AuthContract, data: IDtoSignin): Promise<any> {

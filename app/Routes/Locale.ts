@@ -1,11 +1,11 @@
 import Route from '@ioc:Adonis/Core/Route'
 import LocaleModel from 'App/Models/Locale'
-import RequestStore from 'App/Http/Requests/locale/RequestStore'
-import RequestUpdate from 'App/Http/Requests/locale/RequestUpdate'
+import RequestStore from 'App/Http/Requests/Locale/RequestStore'
+import RequestUpdate from 'App/Http/Requests/Locale/RequestUpdate'
 
 export const Locale = () => {
     Route.group(() => {
-        Route.get('/', 'LocaleController.index')
+        Route.get('/', 'LocaleController.list')
         Route.get('/:id', 'LocaleController.show').bindModel(LocaleModel, 'locale')
         Route.post('/', 'LocaleController.store').validate(RequestStore)
         Route.put('/:id', 'LocaleController.update')

@@ -1,17 +1,10 @@
 import AppException from 'App/Shared/Exceptions/AppException'
 import Locale from 'App/Models/Locale'
 import { IDtoLocale } from 'App/Http/DTOs/IDtoLocale'
-
-// eslint-disable-next-line @typescript-eslint/naming-convention
-export interface ILocaleRepository {
-    index(qs: Record<string, any>): Promise<Locale[]>
-    store(locale: IDtoLocale): Promise<Locale>
-    update(locale: Locale, dto: IDtoLocale): Promise<Locale>
-    delete(locale: Locale): Promise<void>
-}
+import ILocaleRepository from 'App/Http/Interface/ILocaleRepository'
 
 export class ServiceLocale implements ILocaleRepository {
-    public async index(qs: Record<string, any>): Promise<Locale[]> {
+    public async list(qs: Record<string, any>): Promise<Locale[]> {
         const page = Number(qs.page || 1)
         const limit = Number(qs.limit || 20)
         return Locale.query().paginate(page, limit)
