@@ -3,21 +3,18 @@ import { ResponseContract } from '@ioc:Adonis/Core/Response'
 
 interface ISuccessResponse {
     response: ResponseContract
-    code?: number
-    msg?: string
-    data?: any
+    data: any
 }
 interface IErrorResponse {
     response: ResponseContract
-    code?: number
+    code: number
     msg: string
-    data?: any
 }
 
-export const SuccessResponse = ({ response, code, data }: ISuccessResponse) => {
-    return response.status(code || 200).json(data)
+export const SuccessResponse = ({ response, data }: ISuccessResponse) => {
+    return response.status(200).json(data)
 }
 
-export const ErrorResponse = ({ response, code, msg, data }: IErrorResponse) => {
-    return response.status(code || 500).json({ msg: msg.toString() ?? 'Error occured', data })
+export const ErrorResponse = ({ response, code, msg }: IErrorResponse) => {
+    return response.status(code).json({ msg: msg.toString() })
 }
