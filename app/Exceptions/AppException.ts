@@ -1,6 +1,6 @@
 import { Exception } from '@poppinss/utils'
 import { HttpContextContract } from '@ioc:Adonis/Core/HttpContext'
-import { ErrorResponse } from 'App/Shared/Services/ServiceResponse'
+import { ErrorResponse } from 'App/Shared/response'
 import Logger from '@ioc:Adonis/Core/Logger'
 
 export default class AppException extends Exception {

@@ -1,6 +1,6 @@
 import Hash from '@ioc:Adonis/Core/Hash'
-import AppException from 'App/Shared/Exceptions/AppException'
-import AuthorizationException from 'App/Shared/Exceptions/AuthorizationException'
+import AppException from 'App/Exceptions/AppException'
+import AuthorizationException from 'App/Exceptions/AuthorizationException'
 import User from 'App/Models/User'
 import { IDtoUser, IDtorenewPassword } from 'App/Http/DTOs/IDtoUser'
 import { USERTYPES } from 'App/enums/User'

@@ -1,4 +1,4 @@
-import AppException from 'App/Shared/Exceptions/AppException'
+import AppException from 'App/Exceptions/AppException'
 import Locale from 'App/Models/Locale'
 import { IDtoLocale } from 'App/Http/DTOs/IDtoLocale'
 import ILocaleRepository from 'App/Http/Interface/ILocaleRepository'

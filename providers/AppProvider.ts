@@ -1,7 +1,7 @@
 import { HttpContextContract } from '@ioc:Adonis/Core/HttpContext'
 import { ApplicationContract } from '@ioc:Adonis/Core/Application'
 import { LucidModel } from '@ioc:Adonis/Lucid/Orm'
-import NotFoundException from 'App/Shared/Exceptions/NotFoundException'
+import NotFoundException from 'App/Exceptions/NotFoundException'
 import { CamelCaseNamingStrategy } from '../strategies/CamelCaseNamingStrategy'
 
 export default class AppProvider {

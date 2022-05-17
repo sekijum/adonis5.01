@@ -1,4 +1,4 @@
-import AppException from 'App/Shared/Exceptions/AppException'
+import AppException from 'App/Exceptions/AppException'
 import Hoge from 'App/Models/Hoge'
 import { IDtoHoge } from 'App/Http/DTOs/IDtoHoge'
 import IHogeRepository from 'App/Http/Interface/IHogeRepository'

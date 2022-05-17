@@ -39,5 +39,5 @@ Server.middleware.register([() => import('@ioc:Adonis/Core/BodyParser')])
 |
 */
 Server.middleware.registerNamed({
-    auth: 'App/Shared/Middleware/Auth',
+    auth: 'App/Middleware/Auth',
 })

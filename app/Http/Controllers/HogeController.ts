@@ -1,6 +1,6 @@
 import { HttpContextContract } from '@ioc:Adonis/Core/HttpContext'
 import { ServiceHoge } from 'App/Http/Services/ServiceHoge'
-import { SuccessResponse } from 'App/Shared/Services/ServiceResponse'
+import { SuccessResponse } from 'App/Shared/response'
 
 export default class HogeController {
     public ServiceHoge: ServiceHoge

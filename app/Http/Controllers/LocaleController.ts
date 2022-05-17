@@ -1,6 +1,6 @@
 import { HttpContextContract } from '@ioc:Adonis/Core/HttpContext'
 import { ServiceLocale } from 'App/Http/Services/ServiceLocale'
-import { SuccessResponse } from 'App/Shared/Services/ServiceResponse'
+import { SuccessResponse } from 'App/Shared/response'
 
 export default class LocaleController {
     public ServiceLocale: ServiceLocale

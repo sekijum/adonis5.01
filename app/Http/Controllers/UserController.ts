@@ -1,6 +1,6 @@
 import { HttpContextContract } from '@ioc:Adonis/Core/HttpContext'
 import { ServiceUser } from 'App/Http/Services/ServiceUser'
-import { SuccessResponse } from 'App/Shared/Services/ServiceResponse'
+import { SuccessResponse } from 'App/Shared/response'
 import Event from '@ioc:Adonis/Core/Event'
 
 export default class UserController {

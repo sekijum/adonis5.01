@@ -1,6 +1,6 @@
 import { Exception } from '@poppinss/utils'
 import { HttpContextContract } from '@ioc:Adonis/Core/HttpContext'
-import { ErrorResponse } from '../Services/ServiceResponse'
+import { ErrorResponse } from 'App/Shared/response'
 
 export default class NotFoundException extends Exception {
     constructor(message: string) {

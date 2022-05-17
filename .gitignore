@@ -5,4 +5,10 @@ coverage
 .DS_STORE
 .env
 tmp
-docker
+npm-debug.log
+yarn-error.log
+/docker/data/blob/*
+!/docker/data/blob/.keep
+/docker/db/data/*
+!/docker/db/data/.keep
+/docker/redis/data/*

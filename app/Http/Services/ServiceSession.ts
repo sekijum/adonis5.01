@@ -1,5 +1,5 @@
 import { AuthContract } from '@ioc:Adonis/Addons/Auth'
-import AuthorizationException from 'App/Shared/Exceptions/AuthorizationException'
+import AuthorizationException from 'App/Exceptions/AuthorizationException'
 import User from 'App/Models/User'
 import { IDtoSignup, IDtoSignin } from 'App/Http/DTOs/IDtoSession'
 import ISessionRepository from 'App/Http/Interface/ISessionRepository'

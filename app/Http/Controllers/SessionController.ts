@@ -1,5 +1,5 @@
 import { HttpContextContract } from '@ioc:Adonis/Core/HttpContext'
-import { SuccessResponse } from 'App/Shared/Services/ServiceResponse'
+import { SuccessResponse } from 'App/Shared/response'
 import { ServiceSession } from 'App/Http/Services/ServiceSession'
 import Event from '@ioc:Adonis/Core/Event'
 
