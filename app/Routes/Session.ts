@@ -10,6 +10,6 @@ export const Session = () => {
         Route.get('/me', 'SessionController.me').middleware('auth:api')
         Route.put('/refresh', 'SessionController.refresh').middleware('auth:api')
     })
-        .prefix('/session')
+        .prefix('/sessions')
         .namespace('App/Http/Controllers')
 }
