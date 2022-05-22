@@ -19,10 +19,10 @@
 */
 
 import Route from '@ioc:Adonis/Core/Route'
-import { Hoge } from 'App/Routes/Hoge'
-import { Locale } from 'App/Routes/Locale'
-import { Session } from 'App/Routes/Session'
-import { User } from 'App/Routes/User'
+import { Hoge } from 'App/Http/Routes/Hoge'
+import { Locale } from 'App/Http/Routes/Locale'
+import { Session } from 'App/Http/Routes/Session'
+import { User } from 'App/Http/Routes/User'
 
 Route.group(() => {
     Hoge()

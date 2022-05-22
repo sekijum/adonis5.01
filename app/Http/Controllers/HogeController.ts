@@ -1,36 +1,30 @@
 import { HttpContextContract } from '@ioc:Adonis/Core/HttpContext'
-import { ServiceHoge } from 'App/Http/Services/ServiceHoge'
-import { SuccessResponse } from 'App/Shared/response'
+import serviceHoge from 'App/Services/ServiceHoge'
+import { SuccessResponse } from 'App/Shared/Response'
 
 export default class HogeController {
-    public ServiceHoge: ServiceHoge
-
-    constructor() {
-        this.ServiceHoge = new ServiceHoge()
-    }
-
     public async list({ response, request }: HttpContextContract) {
-        const data = await this.ServiceHoge.list(request.qs())
+        const data = await serviceHoge.list(request.qs())
         return SuccessResponse({ response, data })
     }
 
     public async show({ models, response }: HttpContextContract) {
-        const data = await this.ServiceHoge.show(models['hoge'])
+        const data = models['hoge']
         return SuccessResponse({ response, data })
     }
 
     public async store({ response, validated }: HttpContextContract) {
-        const data = await this.ServiceHoge.store(validated)
+        const data = await serviceHoge.store(validated)
         return SuccessResponse({ response, data })
     }
 
     public async update({ models, response, validated }: HttpContextContract) {
-        const data = await this.ServiceHoge.update(models['hoge'], validated)
+        const data = await serviceHoge.update(models['hoge'], validated)
         return SuccessResponse({ response, data })
     }
 
     public async delete({ models, response }: HttpContextContract) {
-        await this.ServiceHoge.delete(models['hoge'])
+        await serviceHoge.delete(models['hoge'])
         return SuccessResponse({ response, data: true })
     }
 }

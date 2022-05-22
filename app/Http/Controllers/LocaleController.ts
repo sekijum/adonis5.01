@@ -1,16 +1,10 @@
 import { HttpContextContract } from '@ioc:Adonis/Core/HttpContext'
-import { ServiceLocale } from 'App/Http/Services/ServiceLocale'
-import { SuccessResponse } from 'App/Shared/response'
+import serviceLocale from 'App/Services/ServiceLocale'
+import { SuccessResponse } from 'App/Shared/Response'
 
 export default class LocaleController {
-    public ServiceLocale: ServiceLocale
-
-    constructor() {
-        this.ServiceLocale = new ServiceLocale()
-    }
-
     public async list({ response, request }: HttpContextContract) {
-        const data = await this.ServiceLocale.list(request.qs())
+        const data = await serviceLocale.list(request.qs())
         return SuccessResponse({ response, data })
     }
 
@@ -20,17 +14,17 @@ export default class LocaleController {
     }
 
     public async store({ response, validated }: HttpContextContract) {
-        const data = await this.ServiceLocale.store(validated)
+        const data = await serviceLocale.store(validated)
         return SuccessResponse({ response, data })
     }
 
     public async update({ models, response, validated }: HttpContextContract) {
-        const data = await this.ServiceLocale.update(models['locale'], validated)
+        const data = await serviceLocale.update(models['locale'], validated)
         return SuccessResponse({ response, data })
     }
 
     public async delete({ models, response }: HttpContextContract) {
-        await this.ServiceLocale.delete(models['locale'])
+        await serviceLocale.delete(models['locale'])
         return SuccessResponse({ response, data: true })
     }
 }

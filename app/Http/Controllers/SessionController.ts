@@ -1,23 +1,17 @@
 import { HttpContextContract } from '@ioc:Adonis/Core/HttpContext'
-import { SuccessResponse } from 'App/Shared/response'
-import { ServiceSession } from 'App/Http/Services/ServiceSession'
+import { SuccessResponse } from 'App/Shared/Response'
+import serviceSession from 'App/Services/ServiceSession'
 import Event from '@ioc:Adonis/Core/Event'
 
 export default class SessionController {
-    public ServiceSession: ServiceSession
-
-    constructor() {
-        this.ServiceSession = new ServiceSession()
-    }
-
     public async signin({ response, auth, validated }: HttpContextContract) {
-        const token = await this.ServiceSession.signin(auth, validated)
+        const token = await serviceSession.signin(auth, validated)
         Event.emit('user:signin', token.user)
         return SuccessResponse({ response, data: token })
     }
 
     public async signup({ response, auth, validated }: HttpContextContract) {
-        const token = await this.ServiceSession.signup(auth, validated)
+        const token = await serviceSession.signup(auth, validated)
         Event.emit('user:signup', token.user)
         return SuccessResponse({ response, data: token })
     }
@@ -28,7 +22,7 @@ export default class SessionController {
     }
 
     public async refresh({ response, auth }: HttpContextContract) {
-        const token = await this.ServiceSession.refresh(auth)
+        const token = await serviceSession.refresh(auth)
         return SuccessResponse({ response, data: token })
     }
 

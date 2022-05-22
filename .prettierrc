@@ -6,6 +6,6 @@
     "quoteProps": "consistent",
     "bracketSpacing": true,
     "arrowParens": "always",
-    "printWidth": 100,
-    "tabWidth": 4,
+    "printWidth": 120,
+    "tabWidth": 4
 }
