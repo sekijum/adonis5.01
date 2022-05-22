@@ -8,9 +8,8 @@ export default class HogeController {
         return SuccessResponse({ response, data })
     }
 
-    public async show({ models, response }: HttpContextContract) {
-        const data = models['hoge']
-        return SuccessResponse({ response, data })
+    public async show({ response, models }: HttpContextContract) {
+        return SuccessResponse({ response, data: models.hoge })
     }
 
     public async store({ response, validated }: HttpContextContract) {
@@ -18,13 +17,13 @@ export default class HogeController {
         return SuccessResponse({ response, data })
     }
 
-    public async update({ models, response, validated }: HttpContextContract) {
-        const data = await serviceHoge.update(models['hoge'], validated)
+    public async update({ response, validated, models }: HttpContextContract) {
+        const data = await serviceHoge.update(models.hoge, validated)
         return SuccessResponse({ response, data })
     }
 
-    public async delete({ models, response }: HttpContextContract) {
-        await serviceHoge.delete(models['hoge'])
+    public async delete({ response, models }: HttpContextContract) {
+        await serviceHoge.delete(models.hoge)
         return SuccessResponse({ response, data: true })
     }
 }

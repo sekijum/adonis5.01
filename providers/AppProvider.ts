@@ -17,9 +17,7 @@ export default class AppProvider {
 
         // IoC container is ready
         const Route = this.app.container.use('Adonis/Core/Route')
-        Route.Route.macro('bindModel', function <
-            T extends LucidModel
-        >(model: T, name: string, key: string = 'id') {
+        Route.Route.macro('bindModel', function <T extends LucidModel>(model: T, name: string, key: string = 'id') {
             this.middleware(async (ctx: HttpContextContract, next: () => void) => {
                 if (!ctx.models) ctx.models = {}
 
@@ -29,7 +27,7 @@ export default class AppProvider {
                 if (!item) throw new NotFoundException(`${name} not found.`)
 
                 ctx.models[name] = item
-                await next()
+                next()
             })
 
             return this
@@ -38,7 +36,7 @@ export default class AppProvider {
         Route.Route.macro('validate', function (validator: any) {
             this.middleware(async (ctx: HttpContextContract, next: () => void) => {
                 ctx.validated = await ctx.request.validate(validator)
-                await next()
+                next()
             })
 
             return this

@@ -7,6 +7,5 @@ export const softDeleteQuery = (query: ModelQueryBuilderContract<typeof BaseMode
 
 export const softDelete = async (row: LucidRow, column: string = 'deletedAt') => {
     row[column] = DateTime.local()
-    await row.save()
-    return
+    return await row.save()
 }

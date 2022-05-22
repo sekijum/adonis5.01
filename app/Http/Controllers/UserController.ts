@@ -9,8 +9,8 @@ export default class UserController {
         return SuccessResponse({ response, data })
     }
 
-    public async show({ models, response }: HttpContextContract) {
-        return SuccessResponse({ response, data: models['user'] })
+    public async show({ response, models }: HttpContextContract) {
+        return SuccessResponse({ response, data: models.user })
     }
 
     public async store({ response, validated }: HttpContextContract) {
@@ -19,20 +19,20 @@ export default class UserController {
         return SuccessResponse({ response, data })
     }
 
-    public async update({ models, response, validated }: HttpContextContract) {
-        const data = await serviceUser.update(models['user'], validated)
+    public async update({ response, validated, models }: HttpContextContract) {
+        const data = await serviceUser.update(models.user, validated)
         Event.emit('user:update', data)
         return SuccessResponse({ response, data })
     }
 
-    public async renewPassword({ models, response, validated }: HttpContextContract) {
-        const data = await serviceUser.renewPassword(models['user'], validated)
+    public async renewPassword({ response, validated, models }: HttpContextContract) {
+        const data = await serviceUser.renewPassword(models.user, validated)
         Event.emit('user:update:password', data)
         return SuccessResponse({ response, data })
     }
 
-    public async delete({ models, response }: HttpContextContract) {
-        await serviceUser.delete(models['user'])
+    public async delete({ response, models }: HttpContextContract) {
+        await serviceUser.delete(models.user)
         return SuccessResponse({ response, data: true })
     }
 }

@@ -1,8 +1,8 @@
 import AppException from 'App/Exceptions/AppException'
+import { ModelPaginatorContract } from '@ioc:Adonis/Lucid/Orm'
 import Hoge from 'App/Models/Hoge'
 import { IDtoHoge } from 'App/Http/DTOs/IDtoHoge'
 import IHogeRepository from 'App/Http/Interface/IHogeRepository'
-import { ModelPaginatorContract } from '@ioc:Adonis/Lucid/Orm'
 
 export class ServiceHoge implements IHogeRepository {
     public async list(qs: Record<string, any>): Promise<ModelPaginatorContract<Hoge>> {

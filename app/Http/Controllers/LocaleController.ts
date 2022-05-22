@@ -8,9 +8,8 @@ export default class LocaleController {
         return SuccessResponse({ response, data })
     }
 
-    public async show({ models, response }: HttpContextContract) {
-        const data = await serviceLocale.show(models['locale'])
-        return SuccessResponse({ response, data })
+    public async show({ response, models }: HttpContextContract) {
+        return SuccessResponse({ response, data: models.locale })
     }
 
     public async store({ response, validated }: HttpContextContract) {
@@ -18,13 +17,13 @@ export default class LocaleController {
         return SuccessResponse({ response, data })
     }
 
-    public async update({ models, response, validated }: HttpContextContract) {
-        const data = await serviceLocale.update(models['locale'], validated)
+    public async update({ response, validated, models }: HttpContextContract) {
+        const data = await serviceLocale.update(models.locale, validated)
         return SuccessResponse({ response, data })
     }
 
-    public async delete({ models, response }: HttpContextContract) {
-        await serviceLocale.delete(models['locale'])
+    public async delete({ response, models }: HttpContextContract) {
+        await serviceLocale.delete(models.locale)
         return SuccessResponse({ response, data: true })
     }
 }
