@@ -4,7 +4,7 @@ import moment from 'moment'
 
 export default class HogeResource {
     static normalizeData(request: ModelPaginatorContract<User>, format = 'L'): any {
-        let { data, meta } = request.serialize() || request.toJSON()
+        let { meta, data } = request.serialize() || request.toJSON()
 
         data = data.map((obj) => ({
             id: obj.id,
@@ -17,6 +17,6 @@ export default class HogeResource {
             updatedAt: moment(obj.updatedAt).format(format),
         }))
 
-        return { data, meta }
+        return { meta, data }
     }
 }
