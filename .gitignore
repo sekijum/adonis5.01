@@ -7,8 +7,5 @@ coverage
 tmp
 npm-debug.log
 yarn-error.log
-/docker/data/blob/*
-!/docker/data/blob/.keep
-/docker/db/data/*
-!/docker/db/data/.keep
-/docker/redis/data/*
+docker/db/data/*
+docker/db/sql/*
