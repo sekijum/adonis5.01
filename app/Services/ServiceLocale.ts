@@ -3,14 +3,12 @@ import Locale from 'App/Models/Locale'
 import { IDtoLocale } from 'App/Http/DTOs/IDtoLocale'
 import ILocaleRepository from 'App/Http/Interface/ILocaleRepository'
 import { ModelPaginatorContract } from '@ioc:Adonis/Lucid/Orm'
-import LocaleResource from 'App/Http/Resources/LocaleResource'
 
 export class ServiceLocale implements ILocaleRepository {
     public async list(qs: Record<string, any>): Promise<ModelPaginatorContract<Locale>> {
         const page = Number(qs.page || 1)
         const limit = Number(qs.limit || 20)
-        const data = await Locale.query().paginate(page, limit)
-        return LocaleResource.normalizeData(data)
+        return await Locale.query().paginate(page, limit)
     }
 
     public async store(data: IDtoLocale): Promise<Locale> {

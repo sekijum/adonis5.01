@@ -6,14 +6,12 @@ import User from 'App/Models/User'
 import { IDtoUser, IDtorenewPassword } from 'App/Http/DTOs/IDtoUser'
 import { USERTYPES } from 'App/Constants/User'
 import IUserRepository from 'App/Http/Interface/IUserRepository'
-import UserResource from 'App/Http/Resources/UserResource'
 
 export class ServiceUser implements IUserRepository {
     public async list(qs: Record<string, any>): Promise<ModelPaginatorContract<User>> {
         const page = Number(qs.page || 1)
         const limit = Number(qs.limit || 20)
-        const data = await User.query().paginate(page, limit)
-        return UserResource.normalizeData(data)
+        return await User.query().paginate(page, limit)
     }
 
     public async store(data: IDtoUser): Promise<User> {

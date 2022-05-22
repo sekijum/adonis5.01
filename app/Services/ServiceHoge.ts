@@ -2,15 +2,13 @@ import AppException from 'App/Exceptions/AppException'
 import Hoge from 'App/Models/Hoge'
 import { IDtoHoge } from 'App/Http/DTOs/IDtoHoge'
 import IHogeRepository from 'App/Http/Interface/IHogeRepository'
-import HogeResource from 'App/Http/Resources/HogeResource'
 import { ModelPaginatorContract } from '@ioc:Adonis/Lucid/Orm'
 
 export class ServiceHoge implements IHogeRepository {
     public async list(qs: Record<string, any>): Promise<ModelPaginatorContract<Hoge>> {
         const page = Number(qs.page || 1)
         const limit = Number(qs.limit || 20)
-        const data = await Hoge.query().preload('locales').paginate(page, limit)
-        return HogeResource.normalizeData(data)
+        return await Hoge.query().preload('locales').paginate(page, limit)
     }
 
     public async store(dto: IDtoHoge): Promise<Hoge> {

@@ -9,7 +9,7 @@ export default class LocaleController {
     }
 
     public async show({ models, response }: HttpContextContract) {
-        const data = models['locale']
+        const data = await serviceLocale.show(models['locale'])
         return SuccessResponse({ response, data })
     }
 
