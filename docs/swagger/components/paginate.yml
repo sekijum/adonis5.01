@@ -1,0 +1,23 @@
+components:
+    schemas:
+        Meta:
+            type: object
+            properties:
+                current_page:
+                    type: integer
+                first_page:
+                    type: integer
+                first_page_url:
+                    type: string
+                last_page:
+                    type: integer
+                last_page_url:
+                    type: string
+                next_page_url:
+                    type: string
+                per_page:
+                    type: integer
+                previous_page_url:
+                    type: string
+                total:
+                    type: integer

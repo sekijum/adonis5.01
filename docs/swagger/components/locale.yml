@@ -1,0 +1,19 @@
+components:
+    schemas:
+        Locale:
+            type: object
+            properties:
+                id:
+                    type: integer
+                name:
+                    type: string
+                originalName:
+                    type: string
+                code:
+                    type: string
+        Locales:
+            type: object
+            properties:
+                data:
+                    type: array
+                    $ref: '#/components/schemas/Locale'

@@ -1,0 +1,93 @@
+/api/locale:
+    get:
+        tags:
+            - Locale
+        produces:
+            - application/json
+        description: 'locale list'
+        responses:
+            200:
+                description: Success
+                content:
+                    application/json:
+                        schema:
+                            $ref: '#/components/schemas/Locales'
+    post:
+        tags:
+            - Locale
+        security: []
+        parameters:
+            - name: credentials
+              in: body
+              required: true
+              schema:
+                  properties:
+                      name:
+                          type: string
+                          example: 'locale name'
+                          required: true
+                      originalName:
+                          type: string
+                          example: 'locale originalName'
+                          required: true
+                      code:
+                          type: string
+                          example: 'locale code'
+                          required: true
+        produces:
+            - application/json
+        description: 'locale show'
+        responses:
+            200:
+                description: Success
+/api/locale/{localeId}:
+    get:
+        tags:
+            - Locale
+        produces:
+            - application/json
+        description: 'locale store'
+        responses:
+            200:
+                description: Success
+                content:
+                    application/json:
+                        schema:
+                            $ref: '#/components/schemas/Locales'
+    put:
+        tags:
+            - Locale
+        security: []
+        parameters:
+            - name: credentials
+              in: body
+              required: true
+              schema:
+                  properties:
+                      name:
+                          type: string
+                          example: 'locale name'
+                          required: true
+                      originalName:
+                          type: string
+                          example: 'locale originalName'
+                          required: true
+                      code:
+                          type: string
+                          example: 'locale code'
+                          required: true
+        produces:
+            - application/json
+        description: 'locale update'
+        responses:
+            200:
+                description: Success
+    delete:
+        tags:
+            - Locale
+        produces:
+            - application/json
+        description: 'locale delete'
+        responses:
+            200:
+                description: Success

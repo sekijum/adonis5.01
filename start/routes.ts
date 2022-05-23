@@ -18,6 +18,7 @@
 |
 */
 
+import { HttpContextContract } from '@ioc:Adonis/Core/HttpContext'
 import Route from '@ioc:Adonis/Core/Route'
 import { Hoge } from 'App/Http/Routes/Hoge'
 import { Locale } from 'App/Http/Routes/Locale'
@@ -33,4 +34,9 @@ Route.group(() => {
 
 Route.get('/', async () => {
     return { hello: 'world' }
+})
+
+Route.get('/docs', async ({ view }: HttpContextContract) => {
+    const specUrl = '/docs/swagger.json'
+    return view.render('swagger', { specUrl })
 })
