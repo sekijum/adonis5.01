@@ -1,17 +1,29 @@
 import { DateTime } from 'luxon'
 import Hash from '@ioc:Adonis/Core/Hash'
-import { column, beforeSave, BaseModel, beforeFind, beforeFetch } from '@ioc:Adonis/Lucid/Orm'
+import {
+    column,
+    beforeSave,
+    BaseModel,
+    beforeFind,
+    beforeFetch,
+    HasMany,
+    hasMany,
+} from '@ioc:Adonis/Lucid/Orm'
 import { softDelete, softDeleteQuery } from 'App/Shared/SoftDelete'
+import UserSocialConnection from './SocialConnection'
 
 export default class User extends BaseModel {
     @column({ isPrimary: true })
     public id: number
 
     @column()
-    public firstName: string
+    public auth0Id: string
 
     @column()
-    public lastName: string
+    public nickName: string
+
+    @column()
+    public picture: string
 
     @column()
     public type: string
@@ -50,4 +62,7 @@ export default class User extends BaseModel {
             user.password = await Hash.make(user.password)
         }
     }
+
+    @hasMany(() => UserSocialConnection)
+    public socialConnections: HasMany<typeof UserSocialConnection>
 }

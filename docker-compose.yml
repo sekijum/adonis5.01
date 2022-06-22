@@ -1,7 +1,7 @@
 version: '3.8'
 services:
     app:
-        container_name: adonis5-app
+        container_name: adonis5-RESTful-API
         build:
             context: ./
             dockerfile: ./docker/node/Dockerfile
@@ -19,7 +19,7 @@ services:
             - db
     db:
         image: mysql:8
-        container_name: adonis5-db
+        container_name: adonis5-RESTful-API-db
         platform: linux/x86_64
         environment:
             MYSQL_ROOT_PASSWORD: root

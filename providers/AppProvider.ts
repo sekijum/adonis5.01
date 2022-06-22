@@ -17,7 +17,9 @@ export default class AppProvider {
 
         // IoC container is ready
         const Route = this.app.container.use('Adonis/Core/Route')
-        Route.Route.macro('bindModel', function <T extends LucidModel>(model: T, name: string, key: string = 'id') {
+        Route.Route.macro('bindModel', function <
+            T extends LucidModel
+        >(model: T, name: string, key: string = 'id') {
             this.middleware(async (ctx: HttpContextContract, next: () => void) => {
                 if (!ctx.models) ctx.models = {}
 

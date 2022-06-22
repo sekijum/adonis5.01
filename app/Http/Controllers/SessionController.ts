@@ -1,9 +1,11 @@
 import { SuccessResponse } from 'App/Shared/Response'
 import serviceSession from 'App/Services/ServiceSession'
+import serviceAuth0 from 'App/Services/ServiceAuth0'
 import Event from '@ioc:Adonis/Core/Event'
+import { HttpContextContract } from '@ioc:Adonis/Core/HttpContext'
 
 export default class SessionController {
-    public async signin({ response, auth, validated }) {
+    public async signin({ response, auth, validated }: HttpContextContract) {
         const token = await serviceSession.signin(auth, validated)
         Event.emit('user:signin', token.user)
         return SuccessResponse({ response, data: token })
@@ -28,5 +30,12 @@ export default class SessionController {
     public async signout({ response, auth }) {
         await auth.use('api').logout()
         return SuccessResponse({ response, data: true })
+    }
+
+    public async social({ response, auth, auth0, validated }: HttpContextContract) {
+        const { accessToken } = validated
+        const auth0user = await serviceAuth0.getUserByToken(auth0, accessToken)
+        const token = await serviceSession.social(auth, auth0user)
+        return SuccessResponse({ response, data: token })
     }
 }

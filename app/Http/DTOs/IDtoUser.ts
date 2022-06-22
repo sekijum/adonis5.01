@@ -1,3 +1,5 @@
+import { User } from 'auth0'
+
 /* eslint-disable @typescript-eslint/naming-convention */
 export interface IDtoUser {
     firstName: string
@@ -12,3 +14,5 @@ export interface IDtorenewPassword {
     password: string
     oldPassword: string
 }
+
+export interface IAuth0User extends User {}

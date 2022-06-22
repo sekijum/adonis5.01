@@ -13,6 +13,10 @@ export default class AppException extends Exception {
 
     public async handle(error: this, ctx: HttpContextContract) {
         Logger.error({ err: error.err }, error.message)
-        ErrorResponse({ response: ctx.response, code: error.status, msg: error.message })
+        ErrorResponse({
+            response: ctx.response,
+            code: error.status,
+            msg: error.message
+        })
     }
 }
