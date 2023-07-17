@@ -1,6 +1,6 @@
 # ex-ddd-kotlin
 
-サーバーサイドkotlinでドメイン駆動設計＋クリーンアーキテクチャのサンプル
+kotlinでドメイン駆動設計＋クリーンアーキテクチャのサンプル
 
 - [Spring Boot](https://github.com/spring-projects/spring-boot)
 - [Exposed](https://github.com/JetBrains/Exposed)
