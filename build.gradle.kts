@@ -47,18 +47,27 @@ dependencies {
     implementation("com.fasterxml.jackson.datatype:jackson-datatype-jdk8:2.12.7")
     implementation("com.fasterxml.jackson.datatype:jackson-datatype-jsr310:2.12.7")
 
+    // flywayDependencies
+    implementation("org.flywaydb:flyway-core:9.8.1")
+
     implementation("org.jetbrains.kotlin:kotlin-reflect")
     implementation("io.projectreactor:reactor-core")
     implementation("com.zaxxer:HikariCP")
 }
 
-tasks.withType<Test> {
-    useJUnitPlatform()
-}
+tasks {
+    withType<KotlinCompile> {
+        kotlinOptions {
+            freeCompilerArgs = listOf("-Xjsr305=strict")
+            jvmTarget = "17"
+        }
+    }
 
-tasks.withType<KotlinCompile> {
-    kotlinOptions {
-        freeCompilerArgs = listOf("-Xjsr305=strict")
-        jvmTarget = "17"
+    withType<Test> {
+        testLogging {
+            events("skipped", "failed")
+            setExceptionFormat("full")
+        }
+        useJUnitPlatform()
     }
 }

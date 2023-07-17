@@ -46,7 +46,7 @@ class SpringfoxConfiguration {
     @Bean
     fun customDocket(): Docket = Docket(DocumentationType.SWAGGER_2)
         .select()
-        .apis(RequestHandlerSelectors.basePackage("htnk128.kotlin.ddd.sample.account.external.spring.rest"))
+        .apis(RequestHandlerSelectors.basePackage("example.external.spring.rest"))
         .build()
         .useDefaultResponseMessages(false)
         .apiInfo(apiInfo())
@@ -54,7 +54,7 @@ class SpringfoxConfiguration {
     private fun apiInfo(): ApiInfo = ApiInfoBuilder()
         .title("Account APIs")
         .description("API specifications for account")
-        .contact(Contact("htnk128", "https://github.com/htnk128", "hiroaki.tanaka128@gmail.com"))
+        .contact(Contact("sekijum", "https://github.com/sekijum", "jumpei0910@icloud.com"))
         .version("1.0.0")
         .build()
 }

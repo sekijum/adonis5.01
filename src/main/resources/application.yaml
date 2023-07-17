@@ -9,6 +9,10 @@ spring:
   flyway:
     enabled: true
     schemas: PUBLIC
+    baseline-on-migrate: true
+    baseline-version: 1.0.0
+    baseline-description: Initial
+    locations: classpath:db/migration
   exposed:
     generate-ddl: false
 server:
@@ -16,5 +20,5 @@ server:
   shutdown: graceful
 logging:
   level:
-    kotlin.example: INFO
+    example: INFO
     Exposed: INFO
