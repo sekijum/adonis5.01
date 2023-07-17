@@ -1,7 +1,5 @@
 import org.jetbrains.kotlin.gradle.tasks.KotlinCompile
 
-val exposedVersion: String by project
-
 plugins {
     id("org.springframework.boot") version "3.1.1"
     id("io.spring.dependency-management") version "1.1.0"
@@ -23,19 +21,26 @@ repositories {
 }
 
 dependencies {
+    // springDependencies
     implementation("org.springframework.boot:spring-boot-starter-web")
+    runtimeOnly("org.springframework.boot:spring-boot-devtools")
+    testImplementation("org.springframework.boot:spring-boot-starter-test")
     implementation("org.springframework:spring-tx")
+
     implementation("org.jetbrains.kotlin:kotlin-reflect")
-    implementation("org.jetbrains.exposed:exposed-core:$exposedVersion")
-    implementation("org.jetbrains.exposed:exposed-dao:$exposedVersion")
-    implementation("org.jetbrains.exposed:exposed-jdbc:$exposedVersion")
-    implementation("org.jetbrains.exposed:exposed-jodatime:$exposedVersion")
     implementation("io.projectreactor:reactor-core")
 
+    // sqlDependencies
+    implementation("org.jetbrains.exposed:exposed-core:0.40.1")
+    implementation("org.jetbrains.exposed:exposed-jdbc:0.40.1")
+    implementation("org.jetbrains.exposed:exposed-jodatime:0.40.1")
     runtimeOnly("com.h2database:h2")
-    runtimeOnly("org.springframework.boot:spring-boot-devtools")
 
-    testImplementation("org.springframework.boot:spring-boot-starter-test")
+    // springfoxDependencies
+    implementation("io.springfox:springfox-boot-starter:3.0.0")
+
+    // loggingDependency
+    implementation("io.github.microutils:kotlin-logging:1.6.26")
 }
 
 tasks.withType<Test> {
