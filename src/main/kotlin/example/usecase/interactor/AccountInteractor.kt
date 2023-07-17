@@ -16,7 +16,8 @@ import reactor.core.publisher.Mono
 @Service
 class AccountInteractor(
     private val accountRepository: AccountRepository,
-    private val domainEventPublisher: DomainEventPublisher<AccountEvent<*>>) : AccountUseCase {
+    private val domainEventPublisher: DomainEventPublisher<AccountEvent<*>>
+) : AccountUseCase {
 
     @Transactional(readOnly = true)
     override fun find(command: FindAccountCommand): Mono<Account> = runCatching {

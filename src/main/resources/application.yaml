@@ -1,3 +1,20 @@
+spring:
+  main:
+    lazy-initialization: false
+  datasource:
+    url: jdbc:h2:mem:testdb;MODE=MySQL;DB_CLOSE_DELAY=-1;DB_CLOSE_ON_EXIT=FALSE
+    username: sa
+    password: password
+    driver-class-name: org.h2.Driver
+  flyway:
+    enabled: true
+    schemas: PUBLIC
+  exposed:
+    generate-ddl: false
 server:
   port: 8080
   shutdown: graceful
+logging:
+  level:
+    kotlin.example: INFO
+    Exposed: INFO

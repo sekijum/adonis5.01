@@ -27,13 +27,11 @@ dependencies {
     testImplementation("org.springframework.boot:spring-boot-starter-test")
     implementation("org.springframework:spring-tx")
 
-    implementation("org.jetbrains.kotlin:kotlin-reflect")
-    implementation("io.projectreactor:reactor-core")
-
     // sqlDependencies
     implementation("org.jetbrains.exposed:exposed-core:0.40.1")
     implementation("org.jetbrains.exposed:exposed-jdbc:0.40.1")
     implementation("org.jetbrains.exposed:exposed-jodatime:0.40.1")
+    implementation("org.jetbrains.exposed:spring-transaction:0.40.1")
     runtimeOnly("com.h2database:h2")
 
     // springfoxDependencies
@@ -41,6 +39,17 @@ dependencies {
 
     // loggingDependency
     implementation("io.github.microutils:kotlin-logging:1.6.26")
+
+    // jacksonDependencies
+    implementation("com.fasterxml.jackson.module:jackson-modules-java8:2.12.7")
+    implementation("com.fasterxml.jackson.module:jackson-module-kotlin:2.12.7")
+    implementation("com.fasterxml.jackson.module:jackson-module-parameter-names:2.12.7")
+    implementation("com.fasterxml.jackson.datatype:jackson-datatype-jdk8:2.12.7")
+    implementation("com.fasterxml.jackson.datatype:jackson-datatype-jsr310:2.12.7")
+
+    implementation("org.jetbrains.kotlin:kotlin-reflect")
+    implementation("io.projectreactor:reactor-core")
+    implementation("com.zaxxer:HikariCP")
 }
 
 tasks.withType<Test> {

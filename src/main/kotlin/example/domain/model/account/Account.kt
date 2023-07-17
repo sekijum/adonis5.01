@@ -25,7 +25,7 @@ class Account(
     /**
      * このアカウントが削除されている場合に`true`を返す。
      */
-    val isDeleted: Boolean = deletedAt != null
+    private val isDeleted: Boolean = deletedAt != null
 
     /**
      * アカウントを更新する。
