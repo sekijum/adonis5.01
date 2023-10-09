@@ -1,0 +1,16 @@
+{
+  "name": "ex-ddd-kotlin",
+  "dockerComposeFile": "../compose.develop.yaml",
+  "service": "api",
+  "workspaceFolder": "/var/www",
+  "extensions": [
+    "vscjava.vscode-java-pack",
+    "fwcd.kotlin",
+    "mathiasfrohlich.kotlin",
+    "esafirm.kotlin-formatter"
+  ],
+  "settings": {
+    "java.compile.nullAnalysis.mode": "automatic"
+  },
+  "remoteUser": "vscode"
+}
